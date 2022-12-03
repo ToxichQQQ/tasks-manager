@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import {TaskBoard, TaskPanel} from "./components";
+import {useCallback, useState} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () =>  {
+    const [tasks, setTasks] = useState([
+        {name: 'Срочный таск', description: '', type: 'asap'},
+        {name: 'Сегодня таск', description: '', type: 'today'},
+        {name: 'На этой неделе таск', description: '', type: 'week'},
+        {name: 'В этом месяце таск', description: '', type: 'month'}
+    ])
+
+    const swapTaskPosition = useCallback((item, columnName) => {
+            let currentTask = tasks.find(task => task.name === item.name)
+            setTasks(prevState => [...prevState.filter(task => task.name !== item.name), {...currentTask, type: columnName}])
+    },[])
+
+    console.log(tasks)
+
+  return <div className='container'>
+      <TaskBoard task={tasks} swapTaskPosition={swapTaskPosition}/>
+  </div>
 }
 
-export default App;
+
+
