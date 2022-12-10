@@ -1,17 +1,17 @@
-.column{
-    border: 1px solid black;
-    border-radius: 7px;
-    min-height: 250px;
+.column {
+  border: 1px solid black;
+  border-radius: 7px;
+  min-height: 250px;
 }
 
-.columnHeader{
-    display: flex;
-    justify-content: center;
+.columnHeader {
+  display: flex;
+  justify-content: center;
 }
 
-.taskList{
-    display: flex;
-    list-style: none;
-    flex-direction: column;
-    padding: 0 40px;
+.taskList {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  padding: 0 40px;
 }

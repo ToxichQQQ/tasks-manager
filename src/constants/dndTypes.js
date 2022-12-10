@@ -1,1 +1,1 @@
-export const TASK_TYPE =  'TASK_TYPE'
+export const TASK_TYPE = "TASK_TYPE";
