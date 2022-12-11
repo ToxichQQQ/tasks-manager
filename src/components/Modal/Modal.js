@@ -4,8 +4,9 @@ import { TaskContext } from "../../context";
 import { taskTypes } from "../../constants";
 
 export const Modal = () => {
-  const { currentTask, addNewTask, changeTask, handleDeleteTask } =
+  const { currentTask, addNewTask, changeTask, handleDeleteTask, setOpen } =
     useContext(TaskContext);
+
   const [taskName, setTaskName] = useState(currentTask?.name || "");
   const [description, setDescription] = useState(
     currentTask?.description || ""
@@ -14,6 +15,7 @@ export const Modal = () => {
 
   return (
     <div className={styles.modal}>
+        <button onClick={() => setOpen(false)} className={styles.hideButton}>X</button>
       <p>
         Дата создания:{" "}
         {currentTask?.data || new Date().toLocaleDateString("ru-RU")}

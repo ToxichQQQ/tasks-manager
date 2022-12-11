@@ -8,7 +8,7 @@ import { TaskContext } from "../../context";
 export const TaskColumn = ({ column, tasks }) => {
   const { swapTaskPosition } = useContext(TaskContext);
 
-  const [{ isOver }, drop] = useDrop(
+  const [ , drop] = useDrop(
     () => ({
       accept: TASK_TYPE,
       drop: (item, monitor) => {

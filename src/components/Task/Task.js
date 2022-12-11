@@ -3,12 +3,11 @@ import styles from "./Task.module.css";
 import { useDrag } from "react-dnd";
 import { TASK_TYPE } from "../../constants/dndTypes";
 import { TaskContext } from "../../context";
-import Api from "../../api";
 
 export const Task = ({ task }) => {
-  const { setTasks, tasks, selectTask } = useContext(TaskContext);
+  const { selectTask } = useContext(TaskContext);
 
-  const [{ isDragging }, drag] = useDrag(() => ({
+  const [, drag] = useDrag(() => ({
     type: TASK_TYPE,
     item: task,
     collect: (monitor) => ({

@@ -55,6 +55,12 @@ export const App = () => {
     setOpen(false);
   };
 
+  useEffect(() => {
+      if (!isOpen){
+         setCurrentTask(null)
+      }
+  },[isOpen])
+
   return (
     <div className="container">
       <TaskContext.Provider
@@ -67,6 +73,7 @@ export const App = () => {
           selectTask,
           changeTask,
           handleDeleteTask,
+            setOpen
         }}
       >
         <TaskBoard swapTaskPosition={swapTaskPosition} />
